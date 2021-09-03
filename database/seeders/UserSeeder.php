@@ -17,7 +17,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'id' => '0081d497-6898-4dfa-a412-acff8c21cb28',
             'name' => 'Administrator',
             'email' => 'admin@email.com',
             'email_verified_at' => now(),
@@ -25,5 +24,8 @@ class UserSeeder extends Seeder
             'role' => User::ADMIN_ROLE,
             'remember_token' => null
         ]);
+        User::factory()
+        ->count(10)
+        ->create();
     }
 }
