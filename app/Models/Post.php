@@ -54,4 +54,14 @@ class Post extends Model
             ]
         ];
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'author');
+    }
+
+    public function categories()
+    {
+        return $this->belongstoMany(Category::class);
+    }
 }

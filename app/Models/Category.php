@@ -51,4 +51,9 @@ class Category extends Model
             ]
         ];
     }
+
+    public function posts()
+    {
+        return $this->belongstoMany(Post::class);
+    }
 }
