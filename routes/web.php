@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Auth
+require 'web/auth.php';
+// Social networks
+require 'web/facebook.php';
+require 'web/google.php';
+Route::middleware(['auth', 'web'])->group(function () {
+
+
+    // Library
+    require 'web/file-upload.php';
+    require 'web/log.php';
 });
