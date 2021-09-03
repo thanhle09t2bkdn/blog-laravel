@@ -21,7 +21,8 @@ class UserSeeder extends Seeder
             'name' => 'Administrator',
             'email' => 'admin@email.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('bl0g123'),
+            'password' => app('hash')->make('admin123'),
+            'role' => User::ADMIN_ROLE,
             'remember_token' => null
         ]);
     }
