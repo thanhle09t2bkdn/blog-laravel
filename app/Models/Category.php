@@ -9,6 +9,7 @@
 namespace App\Models;
 
 use App\Traits\Hashable;
+use App\Traits\Rules;
 use App\Traits\Uuids;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,6 +20,7 @@ class Category extends Model
     use Uuids;
     use Sluggable;
     use HasFactory;
+    use Rules;
     /**
      * The attributes that are mass assignable.
      *
@@ -55,5 +57,18 @@ class Category extends Model
     public function posts()
     {
         return $this->belongstoMany(Post::class);
+    }
+
+    /**
+     * Rules
+     *
+     * @return string[]
+     */
+    public function rules(): array
+    {
+        return [
+            'title' => 'required|min:3|max:255',
+            'image' => 'required|max:255',
+        ];
     }
 }
