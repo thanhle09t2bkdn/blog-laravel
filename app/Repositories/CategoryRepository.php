@@ -4,7 +4,13 @@
 namespace App\Repositories;
 
 
-class CategoryRepository
+use App\Models\Category;
+
+class CategoryRepository extends BaseRepository
 {
+    public function __construct(Category $model)
+    {
+        $this->model = $model;
+    }
 
 }

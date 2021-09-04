@@ -4,7 +4,13 @@
 namespace App\Repositories;
 
 
-class PostRepository
+use App\Models\Post;
+
+class PostRepository extends BaseRepository
 {
+    public function __construct(Post $model)
+    {
+        $this->model = $model;
+    }
 
 }
