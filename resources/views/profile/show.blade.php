@@ -32,7 +32,7 @@
 
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
-                                    <b>Email</b> <a class="float-right">{{ $user->email }}</a>
+                                    <b>Email: </b> <a>{{ $user->email }}</a>
                                 </li>
                             </ul>
                         </div>
