@@ -8,23 +8,23 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block {{ $route->named('reports*') ? 'active' : '' }}">
-            <a href="{{ route('reports.index') }}" class="nav-link">Reports</a>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Reports</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block {{ $route->named('wishlists*') ? 'active' : '' }}">
-            <a href="{{ route('wishlists.index') }}" class="nav-link">Wishlists</a>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Wishlists</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block {{ $route->named('stores*') || $route->named('groups*') || $route->named('coupons*') ? 'active' : '' }}">
-            <a href="{{ route('stores.index') }}" class="nav-link">Coupons</a>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Coupons</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block {{ $route->named('product-suggestions*') ? 'active' : '' }}">
-            <a href="{{ route('product-suggestions.index') }}" class="nav-link">Product suggestions</a>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Product suggestions</a>
         </li>
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item {{ $route->named('logs*') ? 'active' : '' }}">
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('logs') }}" role="button">
                 <i class="nav-icon far fa-file-alt"></i> Logs
             </a>
@@ -48,7 +48,7 @@
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                    <a href="{{ route('profile.show') }}" class="btn btn-default btn-flat">Profile</a>
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat float-right"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

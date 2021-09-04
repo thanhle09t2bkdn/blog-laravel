@@ -14,27 +14,27 @@
 <li class="nav-header text-uppercase">User Info</li>
 
 <li class="nav-item">
-    <a href="{{ route('users.index') }}" class="nav-link {{ $route->named('users*') ? 'active' : '' }} ">
+    <a href="#" class="nav-link">
         <i class="nav-icon fas fa-user"></i>
         <p>Users</p>
     </a>
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('brands.index') }}" class="nav-link {{ $route->named('brands*') ? 'active' : '' }} ">
+    <a href="" class="nav-link">
         <i class="nav-icon fas fa-random"></i>
         <p>Brands</p>
     </a>
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('kinds.index') }}" class="nav-link {{ $route->named('kinds*') ? 'active' : '' }} ">
+    <a href="#" class="nav-link">
         <i class="nav-icon far fa-window-restore"></i>
         <p>Kinds</p>
     </a>
 </li>
 
-<li class="nav-item has-treeview {{ $route->named('banks*') || $route->named('cards*') ? 'menu-open' : '' }}">
+<li class="nav-item has-treeview">
     <a href="#" class="nav-link">
         <i class="nav-icon far fa-credit-card"></i>
         <p>
@@ -44,13 +44,13 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-            <a href="{{ route('banks.index') }}" class="nav-link {{ $route->named('banks*') ? 'active' : '' }}">
+            <a href="" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Banks</p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('cards.index') }}" class="nav-link {{ $route->named('cards*') ? 'active' : '' }}">
+            <a href="" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Cards</p>
             </a>
@@ -58,7 +58,7 @@
     </ul>
 </li>
 
-<li class="nav-item has-treeview {{ $route->named('genres*') || $route->named('organizations*') || $route->named('memberships*') ? 'menu-open' : '' }}">
+<li class="nav-item has-treeview">
     <a href="#" class="nav-link">
         <i class="nav-icon far fa-address-card"></i>
         <p>
@@ -68,19 +68,19 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-            <a href="{{ route('genres.index') }}" class="nav-link {{ $route->named('genres*') ? 'active' : '' }}">
+            <a href="" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Genres</p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('organizations.index') }}" class="nav-link {{ $route->named('organizations*') ? 'active' : '' }}">
+            <a href="" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Organizations</p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('memberships.index') }}" class="nav-link {{ $route->named('memberships*') ? 'active' : '' }}">
+            <a href="" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Memberships</p>
             </a>

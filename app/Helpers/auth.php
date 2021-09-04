@@ -46,21 +46,3 @@ if (!function_exists('isAdmin')) {
         return $user->role == User::ROLE_ADMIN;
     }
 }
-
-if (!function_exists('isMerchantWeb')) {
-
-    /**
-     * Check current user is merchant web
-     *
-     * @return boolean
-     */
-    function isMerchantWeb()
-    {
-        $user = authUser();
-        if (empty($user)) {
-            return false;
-        }
-
-        return $user->role == User::ROLE_MERCHANT_WEB;
-    }
-}
