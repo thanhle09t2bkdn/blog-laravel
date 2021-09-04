@@ -20,11 +20,9 @@ require 'web/facebook.php';
 require 'web/google.php';
 Route::middleware(['auth', 'web'])->group(function () {
 
-    // Home
     require 'web/home.php';
-
-    // Profile
     require 'web/profile.php';
+    require 'web/users.php';
 
     // Library
     require 'web/file-upload.php';

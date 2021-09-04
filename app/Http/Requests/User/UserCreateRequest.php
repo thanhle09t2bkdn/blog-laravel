@@ -19,16 +19,11 @@ class UserCreateRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *
+     * @param User $user
      * @return array
      */
-    public function rules()
+    public function rules(User $user)
     {
-        return [
-            'name' => 'required|min:5|max:50',
-            'email' => 'required|email|min:5|max:50|unique:\App\Models\User,email',
-            'password' => 'required|min:6|max:50|confirmed',
-            'role' => 'required|in:' . implode(',', array_keys(User::$roleNames)),
-        ];
+        return $user->rules();
     }
 }

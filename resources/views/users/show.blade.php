@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     @include('components.alert')
                 </div>
-                <div class="{{ $item->role == \App\Models\User::ROLE_USER ? 'col-md-6' : 'col-md-12' }}">
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">User</h3>
@@ -52,10 +52,6 @@
                                                 <strong>Role:</strong>
                                                 {{ $item->role_name }}
                                             </p>
-                                            <p>
-                                                <strong>Login by:</strong>
-                                                {{ $item->type_name }}
-                                            </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p>
@@ -73,64 +69,6 @@
                         </div>
                     </div>
                 </div>
-                @if ($item->role == \App\Models\User::ROLE_USER)
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Information</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>
-                                    <strong>Birthday:</strong>
-                                    @if (!empty($info))
-                                        {{ $info->birthday }}
-                                    @endif
-                                </p>
-                                <p>
-                                    <strong>Gender:</strong>
-                                    @if (!empty($info))
-                                        {{ $info->gender_name }}
-                                    @endif
-                                </p>
-
-                                <hr>
-
-                                <p><strong>Kinds:</strong></p>
-                                @if (!empty($info))
-                                    @foreach($info->kinds as $key => $kind)
-                                        <p>- {{ $kind->name }}</p>
-                                    @endforeach
-                                @endif
-
-                                <p><strong>Brands:</strong></p>
-                                @if (!empty($info))
-                                    @foreach($info->brands as $key => $brand)
-                                        <p>- {{ $brand->name }}</p>
-                                    @endforeach
-                                @endif
-
-
-                                <p><strong>Cards:</strong></p>
-                                @if (!empty($info))
-                                    @foreach($info->cards as $key => $card)
-                                        <p>
-                                            - {{ $card->bank->name }} | {{ $card->name }}
-                                        </p>
-                                    @endforeach
-                                @endif
-
-                                <p><strong>Memberships:</strong></p>
-                                @if (!empty($info))
-                                    @foreach($info->memberships as $key => $membership)
-                                        <p>
-                                            - {{ $membership->organization->name }} | {{ $membership->name }}
-                                        </p>
-                                    @endforeach
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                @endif
             </div>
         </div>
     </section>

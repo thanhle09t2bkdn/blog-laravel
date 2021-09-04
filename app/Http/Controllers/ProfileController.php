@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Log;
 class ProfileController extends Controller
 {
 
-    protected $userRepository;
+    private $userRepository;
 
     public function __construct(UserRepository $userRepository)
     {

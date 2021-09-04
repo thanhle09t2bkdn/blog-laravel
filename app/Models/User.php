@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Rules;
 use App\Traits\Uuids;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, Uuids;
+    use HasApiTokens, HasFactory, Notifiable, Uuids, Rules;
 
     const ADMIN_ROLE = 1;
     const USER_ROLE = 2;
@@ -25,6 +26,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'email_verified_at'
     ];
 
     /**
@@ -60,4 +63,33 @@ class User extends Authenticatable
         self::ADMIN_ROLE => 'Admin',
         self::USER_ROLE => 'User',
     ];
+
+    /**
+     * Get role_name attribute
+     *
+     * @return string|null
+     */
+    public function getRoleNameAttribute()
+    {
+        if (!isset($this->role)) {
+            return null;
+        }
+
+        return self::$roleNames[$this->role];
+    }
+
+    /**
+     * Rules
+     *
+     * @return string[]
+     */
+    public function rules(): array
+    {
+        return [
+            'name' => 'required|min:5|max:50',
+            'email' => 'required|email|min:5|max:50|unique:\App\Models\User,email',
+            'password' => 'required|min:6|max:50|confirmed',
+            'role' => 'required|in:' . implode(',', array_keys(User::$roleNames)),
+        ];
+    }
 }

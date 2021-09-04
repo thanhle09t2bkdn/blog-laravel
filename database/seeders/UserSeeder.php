@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'remember_token' => null
         ]);
         User::factory()
-        ->count(10)
+        ->count(50)
         ->hasPosts(5)
         ->create();
     }

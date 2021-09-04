@@ -40,20 +40,6 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="type">Login by</label>
-                                            <select class="form-control select2" id="type" name="type">
-                                                <option value="">- All -</option>
-                                                @foreach($typeNames as $type => $name)
-                                                    <option value="{{ $type }}"
-                                                        {{ request()->get('type') == $type ? 'selected' : '' }}>
-                                                        {{ $name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
                                             <label for="role">Role</label>
                                             <select class="form-control select2" id="role" name="role">
                                                 <option value="">- All -</option>
@@ -115,7 +101,6 @@
                                         </th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th class="text-center">Login by</th>
                                         <th class="text-center">Role</th>
                                         <th class="text-center">Created at</th>
                                         <th class="text-center">Action</th>
@@ -129,7 +114,6 @@
                                             </td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
-                                            <td class="text-center">{{ $item->type_name }}</td>
                                             <td class="text-center">{{ $item->role_name }}</td>
                                             <td class="text-center">{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                                             <td class="text-center">

@@ -153,6 +153,21 @@ abstract class BaseRepository implements RepositoryContract
     }
 
     /**
+     * Delete the specified model record from the database.
+     *
+     * @param $ids
+     *
+     * @return bool|null
+     * @throws \Exception
+     */
+    public function deleteByIds(array $ids)
+    {
+        $this->unsetClauses();
+        $this->newQuery()->eagerLoad();
+        return $this->query->whereIn('id', $ids)->delete();
+    }
+
+    /**
      * Set the query limit.
      *
      * @param int $limit
