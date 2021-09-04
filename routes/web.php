@@ -23,6 +23,8 @@ Route::middleware(['auth', 'web'])->group(function () {
     // Home
     require 'web/home.php';
 
+    // Profile
+    require 'web/profile.php';
 
     // Library
     require 'web/file-upload.php';

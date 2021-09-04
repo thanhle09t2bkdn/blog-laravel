@@ -50,4 +50,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class, 'author');
     }
+
+    /**
+     * Role name
+     *
+     * @var string[]
+     */
+    public static $roleNames = [
+        self::ADMIN_ROLE => 'Admin',
+        self::USER_ROLE => 'User',
+    ];
 }
