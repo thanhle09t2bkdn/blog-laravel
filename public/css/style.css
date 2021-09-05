@@ -1,0 +1,16 @@
+.list-group-item {
+    border: none;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.nav-sidebar .nav-header:not(:first-of-type) {
+    padding: 1.7rem 1rem .5rem;
+}
+
+.sidebar-dark-danger .nav-treeview>.nav-item>.nav-link.active {
+    background-color: #dc3545;
+    color: #ffffff;
+}
