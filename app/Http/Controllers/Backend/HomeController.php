@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend;
 
 
 use App\Http\Controllers\Controller;
-use App\Repositories\ReportRepository;
 use Illuminate\Contracts\Support\Renderable;
 
 class HomeController extends Controller
