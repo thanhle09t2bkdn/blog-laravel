@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Requests\User;
 
-use App\Models\User;
+namespace App\Http\Requests\Categories;
+
+
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserCreateRequest extends FormRequest
+class CategoryCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,11 +21,13 @@ class UserCreateRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     * @param User $user
+     *
+     * @param Category $category
+     *
      * @return array
      */
-    public function rules(User $user)
+    public function rules(Category $category)
     {
-        return $user->rules();
+        return $category->rules();
     }
 }

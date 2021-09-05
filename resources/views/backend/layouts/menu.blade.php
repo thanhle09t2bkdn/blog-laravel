@@ -21,9 +21,9 @@
 </li>
 
 <li class="nav-item">
-    <a href="" class="nav-link">
+    <a href="{{ route('backend.categories.index') }}" class="nav-link">
         <i class="nav-icon fas fa-random"></i>
-        <p>Brands</p>
+        <p>Categories</p>
     </a>
 </li>
 

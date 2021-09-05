@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\UserCreateRequest;
-use App\Http\Requests\User\UserUpdateRequest;
+use App\Http\Requests\Users\UserCreateRequest;
+use App\Http\Requests\Users\UserUpdateRequest;
 use App\Models\User;
-use App\Repositories\UserInfoRepository;
 use App\Repositories\UserRepository;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;

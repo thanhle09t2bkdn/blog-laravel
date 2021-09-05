@@ -68,6 +68,7 @@ class Category extends Model
     {
         return [
             'title' => 'required|min:3|max:255',
+            'description' => 'nullable',
             'image' => 'required|max:255',
         ];
     }
