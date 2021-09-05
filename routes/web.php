@@ -18,13 +18,34 @@ require 'web/auth.php';
 // Social networks
 require 'web/facebook.php';
 require 'web/google.php';
+
+/*
+*
+* Backend Routes
+*
+* --------------------------------------------------------------------
+*/
 Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 'web']], function () {
 
-    require 'web/home.php';
-    require 'web/profile.php';
-    require 'web/users.php';
+    require 'web/backend/sites.php';
+    require 'web/backend/profile.php';
+    require 'web/backend/users.php';
 
     // Library
-    require 'web/file-upload.php';
-    require 'web/log.php';
+    require 'web/backend/file-upload.php';
+    require 'web/backend/log.php';
+});
+
+
+/*
+*
+* Frontend Routes
+*
+* --------------------------------------------------------------------
+*/
+Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
+
+    Route::group(['middleware' => ['auth']], function () {
+
+    });
 });

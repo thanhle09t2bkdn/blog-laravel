@@ -1,5 +1,5 @@
 <aside class="main-sidebar elevation-4 sidebar-dark-danger">
-    <a href="{{ route('backend.home.index') }}" class="brand-link navbar-danger">
+    <a href="{{ route('backend.sites.index') }}" class="brand-link navbar-danger">
         <img src="{{ asset('img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Administrator</span>
     </a>

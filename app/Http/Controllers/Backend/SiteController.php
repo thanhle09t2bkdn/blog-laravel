@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 
-class HomeController extends Controller
+class SiteController extends Controller
 {
 
     /**
@@ -26,6 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.home.index');
+        return view('backend.sites.index');
     }
 }
