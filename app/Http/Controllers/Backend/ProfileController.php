@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\ProfileUpdateRequest;
 use App\Repositories\UserRepository;
 use Exception;
@@ -29,7 +30,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
-        return view('profile.show', compact('user'));
+        return view('backend.profile.show', compact('user'));
     }
 
     /**
@@ -56,6 +57,6 @@ class ProfileController extends Controller
             $request->session()->flash('error', 'An error occurred while updating the user.');
         }
 
-        return redirect()->route('profile.show');
+        return redirect()->route('backend.profile.show');
     }
 }

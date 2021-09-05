@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('backend.layouts.app')
 
 @section('content')
     <section class="content-header">
@@ -8,8 +8,8 @@
                     <h1 class="m-0 text-dark">User Information</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('users.index') }}" class="btn btn-default mr-2">Back</a>
-                    <a href="{{ route('users.edit', $item->id) }}" class="btn btn-info">
+                    <a href="{{ route('backend.users.index') }}" class="btn btn-default mr-2">Back</a>
+                    <a href="{{ route('backend.users.edit', $item->id) }}" class="btn btn-info">
                         <i class="fas fa-edit"></i> Edit
                     </a>
                 </div>
@@ -20,7 +20,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-md-12">
-                    @include('components.alert')
+                    @include('backend.components.alert')
                 </div>
                 <div class="col-md-12">
                     <div class="card">

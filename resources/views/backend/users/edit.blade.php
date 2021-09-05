@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('backend.layouts.app')
 
 @section('content')
     <!-- icheck bootstrap -->
@@ -17,10 +17,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    @include('components.alert')
+                    @include('backend.components.alert')
                 </div>
                 <div class="col-md-12">
-                    <form action="{{ route('users.update', $item->id) }}" method="POST">
+                    <form action="{{ route('backend.users.update', $item->id) }}" method="POST">
                         @method('PUT')
                         @csrf
                         <div class="row">
@@ -32,18 +32,18 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @include('fields.edit.name')
+                                                @include('backend.fields.edit.name')
                                             </div>
                                             <div class="col-md-6">
-                                                @include('fields.edit.email')
+                                                @include('backend.fields.edit.email')
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @include('fields.edit.password')
+                                                @include('backend.fields.edit.password')
                                             </div>
                                             <div class="col-md-6">
-                                                @include('fields.edit.password-confirmation')
+                                                @include('backend.fields.edit.password-confirmation')
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                @include('fields.common.action', ['url' => route('users.index')])
+                                                @include('backend.fields.common.action', ['url' => route('backend.users.index')])
                                             </div>
                                         </div>
                                     </div>

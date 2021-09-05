@@ -5,7 +5,7 @@
 <li class="nav-header text-uppercase">Basic</li>
 
 <li class="nav-item">
-    <a href="{{ route('home.index') }}" class="nav-link {{ $route->named('home*') ? 'active' : '' }} ">
+    <a href="{{ route('backend.home.index') }}" class="nav-link {{ $route->named('home*') ? 'active' : '' }} ">
         <i class="nav-icon fas fa-home"></i>
         <p>Dashboard</p>
     </a>
@@ -14,7 +14,7 @@
 <li class="nav-header text-uppercase">User Info</li>
 
 <li class="nav-item">
-    <a href="{{ route('users.index') }}" class="nav-link">
+    <a href="{{ route('backend.users.index') }}" class="nav-link">
         <i class="nav-icon fas fa-user"></i>
         <p>Users</p>
     </a>

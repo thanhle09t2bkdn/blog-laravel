@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('backend.layouts.app')
 
 @section('content')
     <section class="content-header">
@@ -8,7 +8,7 @@
                     <h1 class="m-0 text-dark">Users</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('users.create') }}" class="btn btn-success">
+                    <a href="{{ route('backend.users.create') }}" class="btn btn-success">
                         <i class="fas fa-plus"></i> Create
                     </a>
                 </div>
@@ -30,7 +30,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        @include('fields.search.name')
+                                        @include('backend.fields.search.name')
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        @include('fields.common.search')
+                                        @include('backend.fields.common.search')
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    @include('components.alert')
+                    @include('backend.components.alert')
                 </div>
                 <div class="col-md-12">
                     <div class="card">
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="card-body table-responsive p-0">
-                            <form method="POST" action="{{ route('users.delete') }}" id="form-delete-items">
+                            <form method="POST" action="{{ route('backend.users.delete') }}" id="form-delete-items">
                                 @method('DELETE')
                                 @csrf
                                 <table class="table table-hovercode" id="table-list">
@@ -117,10 +117,10 @@
                                             <td class="text-center">{{ $item->role_name }}</td>
                                             <td class="text-center">{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                                             <td class="text-center">
-                                                <a href="{{ route('users.show', $item->id) }}" class="btn btn-sm btn-info">
+                                                <a href="{{ route('backend.users.show', $item->id) }}" class="btn btn-sm btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
-                                                <a href="{{ route('users.edit', $item->id) }}" class="btn btn-sm btn-warning">
+                                                <a href="{{ route('backend.users.edit', $item->id) }}" class="btn btn-sm btn-warning">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                             </td>
@@ -150,5 +150,5 @@
         </div>
     </section>
 
-    @include('components.confirm-delete')
+    @include('backend.components.confirm-delete')
 @endsection

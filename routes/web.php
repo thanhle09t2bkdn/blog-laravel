@@ -18,7 +18,7 @@ require 'web/auth.php';
 // Social networks
 require 'web/facebook.php';
 require 'web/google.php';
-Route::middleware(['auth', 'web'])->group(function () {
+Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 'web']], function () {
 
     require 'web/home.php';
     require 'web/profile.php';

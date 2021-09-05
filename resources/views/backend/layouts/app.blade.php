@@ -34,14 +34,14 @@ $v = time();
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-    @include('layouts.header')
+    @include('backend.layouts.header')
 
-    @include('layouts.left-bar')
+    @include('backend.layouts.left-bar')
 
     <div class="content-wrapper">
         @yield('content')
     </div>
-    @include('layouts.footer')
+    @include('backend.layouts.footer')
 </div>
 
 <!-- REQUIRED SCRIPTS -->

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('backend.layouts.app')
 
 @section('content')
     <section class="content-header">
@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('backend.home.index') }}">Home</a></li>
                         <li class="breadcrumb-item active">User Profile</li>
                     </ol>
                 </div>
@@ -40,13 +40,13 @@
                 </div>
 
                 <div class="col-md-9">
-                    @include('components.alert')
+                    @include('backend.components.alert')
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Update information</h3>
                         </div>
                         <div class="card-body">
-                            <form class="form-horizontal" method="post" action="{{ route('profile.update') }}">
+                            <form class="form-horizontal" method="post" action="{{ route('backend.profile.update') }}">
                                 @method('PUT')
                                 @csrf
                                 <div class="form-group row">

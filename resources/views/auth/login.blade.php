@@ -7,7 +7,7 @@
                 <div class="login-logo">Administrator</div>
                 <p class="login-box-msg">Login to start your session</p>
 
-                @include('components.alert')
+                @include('backend.components.alert')
                 <form action="{{ route('login') }}" method="post">
                     @csrf
                     <div class="mb-3">

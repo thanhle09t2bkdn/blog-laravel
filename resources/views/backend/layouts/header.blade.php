@@ -25,7 +25,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('logs') }}" role="button">
+            <a class="nav-link" href="{{ route('backend.logs') }}" role="button">
                 <i class="nav-icon far fa-file-alt"></i> Logs
             </a>
         </li>
@@ -48,7 +48,7 @@
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                    <a href="{{ route('profile.show') }}" class="btn btn-default btn-flat">Profile</a>
+                    <a href="{{ route('backend.profile.show') }}" class="btn btn-default btn-flat">Profile</a>
                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat float-right"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+
+use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserCreateRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use App\Models\User;
@@ -48,7 +50,7 @@ class UserController extends Controller
             $list = $this->userRepository->paginate();
             $roleNames = User::$roleNames;
 
-            return view('users.index', compact('list', 'roleNames'));
+            return view('backend.users.index', compact('list', 'roleNames'));
         } catch (Exception $exception) {
             Log::error($exception);
             abort(500);
@@ -65,7 +67,7 @@ class UserController extends Controller
         try {
             $roleNames = User::$roleNames;
 
-            return view('users.create', compact('roleNames'));
+            return view('backend.users.create', compact('roleNames'));
         } catch (Exception $exception) {
             Log::error($exception);
             abort(500);
@@ -94,14 +96,14 @@ class UserController extends Controller
             $request->session()->flash('success', 'The user has been successfully created.');
 
             if ($request->get('action') === 'edit') {
-                return redirect()->route('users.edit', $item->id);
+                return redirect()->route('backend.users.edit', $item->id);
             }
 
-            return redirect()->route('users.show', $item->id);
+            return redirect()->route('backend.users.show', $item->id);
         } catch (Exception $exception) {
             Log::error($exception);
             $request->session()->flash('error', 'An error occurred while creating the user.');
-            return redirect()->route('users.index');
+            return redirect()->route('backend.users.index');
         }
     }
 
@@ -118,7 +120,7 @@ class UserController extends Controller
         try {
             $item = $this->userRepository->getById($id);
 
-            return view('users.show', compact('item'));
+            return view('backend.users.show', compact('item'));
         } catch (ModelNotFoundException $exception) {
             $request->session()->flash('error', 'Sorry, the page you are looking for could not be found.');
         } catch (Exception $exception) {
@@ -126,7 +128,7 @@ class UserController extends Controller
             $request->session()->flash('error', 'An error occurred while showing the user.');
         }
 
-        return redirect()->route('users.index');
+        return redirect()->route('backend.users.index');
     }
 
     /**
@@ -143,7 +145,7 @@ class UserController extends Controller
             $item = $this->userRepository->getById($id);
             $roleNames = User::$roleNames;
 
-            return view('users.edit', compact('item', 'roleNames'));
+            return view('backend.users.edit', compact('item', 'roleNames'));
         } catch (ModelNotFoundException $e) {
             $request->session()->flash('error', 'Sorry, the page you are looking for could not be found.');
         } catch (Exception $exception) {
@@ -151,7 +153,7 @@ class UserController extends Controller
             $request->session()->flash('error', 'An error occurred while showing the user.');
         }
 
-        return redirect()->route('users.index');
+        return redirect()->route('backend.users.index');
     }
 
     /**
@@ -181,16 +183,16 @@ class UserController extends Controller
             $request->session()->flash('success', 'The user has been successfully updated.');
 
             if ($request->get('action') === 'edit') {
-                return redirect()->route('users.edit', $id);
+                return redirect()->route('backend.users.edit', $id);
             }
 
-            return redirect()->route('users.show', $id);
+            return redirect()->route('backend.users.show', $id);
         } catch (Exception $exception) {
             Log::error($exception);
             $request->session()->flash('error', 'An error occurred while updating the user.');
         }
 
-        return redirect()->route('users.index');
+        return redirect()->route('backend.users.index');
     }
 
     /**
@@ -215,6 +217,6 @@ class UserController extends Controller
             $request->session()->flash('error', 'An error occurred while deleting the users.');
         }
 
-        return redirect()->route('users.index');
+        return redirect()->route('backend.users.index');
     }
 }

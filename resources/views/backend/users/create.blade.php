@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('backend.layouts.app')
 
 @section('content')
     <!-- icheck bootstrap -->
@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{ route('users.store') }}" method="POST">
+                    <form action="{{ route('backend.users.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-md-8">
@@ -28,18 +28,18 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @include('fields.create.name')
+                                                @include('backend.fields.create.name')
                                             </div>
                                             <div class="col-md-6">
-                                                @include('fields.create.email')
+                                                @include('backend.fields.create.email')
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @include('fields.create.password')
+                                                @include('backend.fields.create.password')
                                             </div>
                                             <div class="col-md-6">
-                                                @include('fields.create.password-confirmation')
+                                                @include('backend.fields.create.password-confirmation')
                                             </div>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                @include('fields.common.action', ['url' => route('users.index')])
+                                                @include('backend.fields.common.action', ['url' => route('backend.users.index')])
                                             </div>
                                         </div>
                                     </div>
