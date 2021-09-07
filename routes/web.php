@@ -31,6 +31,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'backend.',
     require 'web/backend/profile.php';
     require 'web/backend/users.php';
     require 'web/backend/categories.php';
+    require 'web/backend/posts.php';
 
     // Library
     require 'web/backend/file-upload.php';
