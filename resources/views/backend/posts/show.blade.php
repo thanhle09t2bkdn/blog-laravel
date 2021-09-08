@@ -38,8 +38,8 @@
                                             </p>
                                             <p>
                                                 <strong>Content:</strong>
-                                                {!! $item->content !!}
                                             </p>
+                                            {!! $item->content !!}
                                         </div>
                                         <div class="col-md-4">
                                             <p>
