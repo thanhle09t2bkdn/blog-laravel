@@ -66,4 +66,7 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('backend/js/pages/product.js') }}"></script>
 @endsection

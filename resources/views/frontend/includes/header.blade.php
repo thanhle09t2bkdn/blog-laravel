@@ -2,15 +2,15 @@
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg headroom py-lg-3 px-lg-6 navbar-dark navbar-theme-primary">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img class="navbar-brand-dark common" src="{{asset('img/backend-logo.jpg')}}" height="35" alt="Logo light">
-                <img class="navbar-brand-light common" src="{{asset('img/backend-logo.jpg')}}" height="35" alt="Logo dark">
+                <img class="navbar-brand-dark common" src="{{asset('backend/img/backend-logo.jpg')}}" height="35" alt="Logo light">
+                <img class="navbar-brand-light common" src="{{asset('backend/img/backend-logo.jpg')}}" height="35" alt="Logo dark">
             </a>
             <div class="navbar-collapse collapse" id="navbar_global">
                 <div class="navbar-collapse-header">
                     <div class="row">
                         <div class="col-6 collapse-brand">
                             <a href="/">
-                                <img src="{{asset('img/backend-logo.jpg')}}" height="35" alt="Logo Impact">
+                                <img src="{{asset('backend/img/backend-logo.jpg')}}" height="35" alt="Logo Impact">
                             </a>
                         </div>
                         <div class="col-6 collapse-close">

@@ -38,7 +38,7 @@
                                             </p>
                                             <p>
                                                 <strong>Content:</strong>
-                                                {{ $item->content }}
+                                                {!! $item->content !!}
                                             </p>
                                         </div>
                                         <div class="col-md-4">

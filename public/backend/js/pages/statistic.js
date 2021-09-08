@@ -12,7 +12,7 @@ var reportOptions = {
             }
         }
     }
-}
+};
 
 function last12MonthsChart() {
     var datasets = [
