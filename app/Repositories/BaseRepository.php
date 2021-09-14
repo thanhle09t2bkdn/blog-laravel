@@ -473,4 +473,18 @@ abstract class BaseRepository implements RepositoryContract
 
         return compact('column', 'operator', 'type');
     }
+
+    /**
+     * searchFromParams
+     *
+     * @param $request
+     *
+     * @return mixed
+     */
+    public function searchFromRequest($request)
+    {
+        return $this->search($request->only(array_keys($this->fieldSearchable)))
+            ->orderBy('created_at', 'desc')
+            ->paginate();
+    }
 }
