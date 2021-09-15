@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Posts\PostCreateRequest;
 use App\Http\Requests\Posts\PostUpdateRequest;
+use App\Repositories\CategoryRepository;
 use App\Repositories\PostRepository;
 use Exception;
 use Illuminate\Contracts\Support\Renderable;
@@ -21,17 +22,21 @@ class PostController extends Controller
      * Repository
      *
      * @var PostRepository
+     * @var CategoryRepository
      */
     private $postRepository;
+    private $categoryRepository;
 
     /**
      * Constructor.
      *
      * @param PostRepository $postRepository
+     * @param CategoryRepository $categoryRepository
      */
-    public function __construct(PostRepository $postRepository)
+    public function __construct(PostRepository $postRepository, CategoryRepository $categoryRepository)
     {
         $this->postRepository = $postRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -61,7 +66,8 @@ class PostController extends Controller
     public function create()
     {
         try {
-            return view('backend.posts.create');
+            $categories = $this->categoryRepository->all();
+            return view('backend.posts.create', compact('categories'));
         } catch (Exception $exception) {
             Log::error($exception);
             abort(500);

@@ -28,6 +28,9 @@
                                                 @include('backend.fields.create.title')
                                             </div>
                                             <div class="col-md-12">
+                                                @include('backend.fields.create.categories')
+                                            </div>
+                                            <div class="col-md-12">
                                                 @include('backend.fields.create.content')
                                             </div>
                                         </div>
