@@ -37,6 +37,14 @@
                                                 {{ $item->title }}
                                             </p>
                                             <p>
+                                                <strong>Categories:</strong>
+                                            </p>
+                                            <ul>
+                                                @foreach($item->categories as $category)
+                                                    <li>{{ $category->title }}</li>
+                                                @endforeach
+                                            </ul>
+                                            <p>
                                                 <strong>Content:</strong>
                                             </p>
                                             {!! $item->content !!}

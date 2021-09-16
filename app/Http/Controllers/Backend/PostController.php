@@ -50,7 +50,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         try {
-            $list = $this->postRepository->paginate();
+            $list = $this->postRepository->searchFromRequest($request);
 
             return view('backend.posts.index', compact('list'));
         } catch (Exception $exception) {
