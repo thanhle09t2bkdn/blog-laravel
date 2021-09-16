@@ -29,8 +29,11 @@
                         <form id="form-search">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        @include('backend.fields.search.name')
+                                    <div class="col-md-6">
+                                        @include('backend.fields.search.title')
+                                    </div>
+                                    <div class="col-md-6">
+                                        @include('backend.fields.search.author')
                                     </div>
                                 </div>
                                 <div class="row">
@@ -78,6 +81,7 @@
                                             <input type="checkbox" id="check-all" onchange="checkAll()">
                                         </th>
                                         <th>Title</th>
+                                        <th>Author</th>
                                         <th class="text-center">Created at</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -89,6 +93,7 @@
                                                 <input type="checkbox" onchange="checkItem()" value="{{ $item->id }}" name="id[]">
                                             </td>
                                             <td>{{ $item->title }}</td>
+                                            <td>{{ $item->author }}</td>
                                             <td class="text-center">{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                                             <td class="text-center">
                                                 <a href="{{ route('backend.posts.show', $item->id) }}" class="btn btn-sm btn-info">
@@ -114,7 +119,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="px-3 float-right">
-                                    {{ $list->links() }}
+                                    {{ $list->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>

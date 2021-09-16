@@ -86,7 +86,7 @@ class PostController extends Controller
     {
         try {
             $attributes = $request->all();
-            $attributes['author'] = Auth::id();
+            $attributes['author_id'] = Auth::id();
             $item = $this->postRepository->create($attributes);
             $item->categories()->attach($attributes['categories']);
 
