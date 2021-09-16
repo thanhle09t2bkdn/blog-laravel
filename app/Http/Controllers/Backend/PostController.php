@@ -165,9 +165,10 @@ class PostController extends Controller
     public function update(PostUpdateRequest $request, $id)
     {
         try {
-            $attributes = $request->only(array_keys($this->postRepository->makeModel()->rules()));
-            $this->postRepository->update($attributes, $id);
+            $attributes = $request->all();
+            $item = $this->postRepository->update($attributes, $id);
 
+            $item->categories()->sync($attributes['categories']);
             $request->session()->flash('success', 'The post has been successfully updated.');
 
             if ($request->get('action') === 'edit') {
