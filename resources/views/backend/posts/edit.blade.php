@@ -32,6 +32,9 @@
                                                 @include('backend.fields.edit.title')
                                             </div>
                                             <div class="col-md-12">
+                                                @include('backend.fields.edit.categories')
+                                            </div>
+                                            <div class="col-md-12">
                                                 @include('backend.fields.edit.content')
                                             </div>
                                         </div>

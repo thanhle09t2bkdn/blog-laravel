@@ -28,6 +28,12 @@ class PostUpdateRequest extends FormRequest
      */
     public function rules(Post $post)
     {
-        return $post->rules();
+        return [
+            'title' => 'required|min:3|max:255',
+            'categories' => 'required',
+            'categories.*' => 'exists:App\Models\Category,id',
+            'content' => 'required',
+            'image' => 'required|max:255',
+        ];
     }
 }

@@ -140,9 +140,10 @@ class PostController extends Controller
     public function edit(Request $request, string $id)
     {
         try {
+            $categories = $this->categoryRepository->all();
             $item = $this->postRepository->getById($id);
 
-            return view('backend.posts.edit', compact('item'));
+            return view('backend.posts.edit', compact('item', 'categories'));
         } catch (ModelNotFoundException $e) {
             $request->session()->flash('error', 'Sorry, the page you are looking for could not be found.');
         } catch (Exception $exception) {
