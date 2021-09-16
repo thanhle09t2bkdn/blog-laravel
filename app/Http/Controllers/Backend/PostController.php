@@ -13,6 +13,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
 
@@ -84,10 +85,12 @@ class PostController extends Controller
     public function store(PostCreateRequest $request)
     {
         try {
-            $attributes = $request->only(array_keys($this->postRepository->makeModel()->rules()));
+            $attributes = $request->all();
+            $attributes['author'] = Auth::id();
             $item = $this->postRepository->create($attributes);
+            $item->categories()->attach($attributes['categories']);
 
-            $request->session()->flash('success', 'The brand has been successfully created.');
+            $request->session()->flash('success', 'The post has been successfully created.');
 
             if ($request->get('action') === 'edit') {
                 return redirect()->route('backend.posts.edit', $item->id);
@@ -96,7 +99,7 @@ class PostController extends Controller
             return redirect()->route('backend.posts.show', $item->id);
         } catch (Exception $exception) {
             Log::error($exception);
-            $request->session()->flash('error', 'An error occurred while creating the brand.');
+            $request->session()->flash('error', 'An error occurred while creating the post.');
         }
 
         return redirect()->route('backend.posts.index');
@@ -120,7 +123,7 @@ class PostController extends Controller
             $request->session()->flash('error', 'Sorry, the page you are looking for could not be found.');
         } catch (Exception $exception) {
             Log::error($exception);
-            $request->session()->flash('error', 'An error occurred while showing the brand.');
+            $request->session()->flash('error', 'An error occurred while showing the post.');
         }
 
         return redirect()->route('backend.posts.index');
@@ -144,7 +147,7 @@ class PostController extends Controller
             $request->session()->flash('error', 'Sorry, the page you are looking for could not be found.');
         } catch (Exception $exception) {
             Log::error($exception);
-            $request->session()->flash('error', 'An error occurred while showing the brand.');
+            $request->session()->flash('error', 'An error occurred while showing the post.');
         }
 
         return redirect()->route('backend.posts.index');

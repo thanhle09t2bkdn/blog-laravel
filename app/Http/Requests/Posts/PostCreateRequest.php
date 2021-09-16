@@ -4,7 +4,6 @@
 namespace App\Http\Requests\Posts;
 
 
-use App\Models\Post;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PostCreateRequest extends FormRequest
@@ -22,12 +21,17 @@ class PostCreateRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @param Post $post
      *
      * @return array
      */
-    public function rules(Post $post)
+    public function rules()
     {
-        return $post->rules();
+        return [
+            'title' => 'required|min:3|max:255',
+            'categories' => 'required',
+            'categories.*' => 'exists:App\Models\Category,id',
+            'content' => 'required',
+            'image' => 'required|max:255',
+        ];
     }
 }
