@@ -1,8 +1,6 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
 
     <div class="content-header">
         <div class="container-fluid">
@@ -65,8 +63,8 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="icheck-primary">
-                                                    <input type="checkbox" id="is_active" checked name="is_active">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="is_active" checked class="form-check-input" name="is_active">
                                                     <label for="is_active">
                                                         Is active?
                                                     </label>

@@ -13,7 +13,9 @@ $v = time();
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Administrator | Blog Laravel</title>
 
-    <!-- Google Font: Source Sans Pro -->
+
+@stack('before-styles')
+<!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <!-- Select 2 -->
@@ -25,11 +27,11 @@ $v = time();
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('backend/css/adminlte.min.css') }}">
 
+@stack('after-styles')
+
     <!-- Custom style -->
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}?v={{ $v }}">
 
-    <!-- jQuery -->
-    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -44,22 +46,28 @@ $v = time();
     @include('backend.layouts.footer')
 </div>
 
-<!-- REQUIRED SCRIPTS -->
 
-<!-- Bootstrap 4 -->
-<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Scripts -->
+@stack('before-scripts')
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-<!-- Select 2 -->
-<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    <!-- Select 2 -->
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 
-<!-- Laravel File Manager -->
-<script src="{{ asset('/vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
+    <!-- Laravel File Manager -->
+    <script src="{{ asset('/vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
 
-<!-- Script for element -->
-<script src="{{ asset('backend/js/script.js') }}?v={{ $v }}"></script>
-<script src="{{ asset('backend/js/common.js') }}?v={{ $v }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('backend/js/adminlte.min.js') }}"></script>
+@stack('after-scripts')
 
-<!-- AdminLTE App -->
-<script src="{{ asset('backend/js/adminlte.min.js') }}"></script>
+    <!-- Script for element -->
+    <script src="{{ asset('backend/js/script.js') }}?v={{ $v }}"></script>
+    <script src="{{ asset('backend/js/common.js') }}?v={{ $v }}"></script>
+
 </body>
 </html>

@@ -1,3 +1,8 @@
+@push('after-scripts')
+    <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('backend/js/pages/product.js') }}"></script>
+@endpush
+
 @extends('backend.layouts.app')
 
 @section('content')
@@ -69,7 +74,4 @@
             </div>
         </div>
     </div>
-
-    <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
-    <script src="{{ asset('backend/js/pages/product.js') }}"></script>
 @endsection

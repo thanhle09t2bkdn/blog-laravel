@@ -64,6 +64,7 @@ class PostRepository extends BaseRepository
                 }
             }
         }
+        $query->orderByDesc('created_at');
         return $query->paginate();
     }
 
