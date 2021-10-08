@@ -25,7 +25,7 @@ require 'web/google.php';
 *
 * --------------------------------------------------------------------
 */
-Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 'web']], function () {
+Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 'web', 'auth.admin']], function () {
 
     require 'web/backend/sites.php';
     require 'web/backend/profile.php';

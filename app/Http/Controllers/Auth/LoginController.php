@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,20 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectPath()
+    {
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+
+        $redirectPage = RouteServiceProvider::HOME;
+        if(Auth::user()->role === User::ADMIN_ROLE) {
+            $redirectPage = RouteServiceProvider::ADMIN_HOME;
+        }
+
+        return $redirectPage;
+//        return property_exists($this, 'redirectTo') ? $this->redirectTo : $redirectPage;
     }
 }

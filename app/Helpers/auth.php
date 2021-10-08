@@ -43,6 +43,6 @@ if (!function_exists('isAdmin')) {
             return false;
         }
 
-        return $user->role == User::ROLE_ADMIN;
+        return $user->role == User::ADMIN_ROLE;
     }
 }
