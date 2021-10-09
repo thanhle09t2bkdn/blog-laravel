@@ -14,7 +14,7 @@ class FkPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->foreign('author')
+            $table->foreign('author_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
@@ -29,7 +29,7 @@ class FkPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign('posts_author_foreign');
+            $table->dropForeign('posts_author_id_foreign');
         });
     }
 }

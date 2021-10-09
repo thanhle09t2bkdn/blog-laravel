@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('author');
+            $table->uuid('author_id');
             $table->string('title');
             $table->string('slug');
             $table->string('image')->nullable();

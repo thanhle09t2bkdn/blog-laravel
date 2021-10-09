@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('backend.home.index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('backend.sites.index') }}">Home</a></li>
                         <li class="breadcrumb-item active">User Profile</li>
                     </ol>
                 </div>
@@ -24,7 +24,7 @@
                     <div class="card card-primary card-outline">
                         <div class="card-body box-profile">
                             <div class="text-center">
-                                <img class="profile-user-img img-fluid img-circle" src="{{ asset('img/avatar.png') }}" alt="User profile picture">
+                                <img class="profile-user-img img-fluid img-circle" src="{{ asset('backend/img/avatar.png') }}" alt="User profile picture">
                             </div>
 
                             <h3 class="profile-username text-center">{{ $user->name }}</h3>

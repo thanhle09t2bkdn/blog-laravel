@@ -29,7 +29,7 @@ class Post extends Model
      */
     protected $fillable = [
         'title',
-        'author',
+        'author_id',
         'content',
         'image'
     ];
@@ -59,7 +59,7 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'author');
+        return $this->belongsTo(User::class, 'author_id');
     }
 
     public function categories()
@@ -76,7 +76,7 @@ class Post extends Model
     {
         return [
             'title' => 'required|min:3|max:255',
-            'author' => 'exists:App\Models\User,id',
+            'author_id' => 'exists:App\Models\User,id',
             'content' => 'required',
             'image' => 'required|max:255',
         ];

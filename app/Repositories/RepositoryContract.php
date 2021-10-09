@@ -44,4 +44,10 @@ interface RepositoryContract
     public function forceDelete($id);
 
     public function onlyTrashed();
+
+    public function search($searchData, $isSearchOr = false);
+
+    function getDataSearch(string $field);
+
+    public function searchFromRequest($request);
 }

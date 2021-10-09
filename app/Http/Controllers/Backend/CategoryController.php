@@ -44,7 +44,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         try {
-            $list = $this->categoryRepository->paginate();
+            $list = $this->categoryRepository->searchFromRequest($request);
 
             return view('backend.categories.index', compact('list'));
         } catch (Exception $exception) {

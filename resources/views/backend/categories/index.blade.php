@@ -30,7 +30,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        @include('backend.fields.search.name')
+                                        @include('backend.fields.search.title')
                                     </div>
                                 </div>
                                 <div class="row">
@@ -114,7 +114,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="px-3 float-right">
-                                    {{ $list->links() }}
+                                    {{ $list->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>

@@ -46,7 +46,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         try {
-            $list = $this->userRepository->paginate();
+            $list = $this->userRepository->searchFromRequest($request);
             $roleNames = User::$roleNames;
 
             return view('backend.users.index', compact('list', 'roleNames'));

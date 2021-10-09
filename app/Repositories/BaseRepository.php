@@ -55,6 +55,13 @@ abstract class BaseRepository implements RepositoryContract
     protected $scopes = [];
 
     /**
+     * Attribute searchable
+     *
+     * @var array
+     */
+    protected $fieldSearchable = [];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function makeModel()
@@ -387,5 +394,97 @@ abstract class BaseRepository implements RepositoryContract
     {
         $this->unsetClauses();
         return $this->model->onlyTrashed();
+    }
+
+    /**
+     * Search by basic where clause to the query.
+     *
+     * @param mixed $searchData Data to search.
+     * @param bool  $isSearchOr Search "or".
+     *
+     * @return mixed
+     */
+    public function search($searchData, $isSearchOr = false)
+    {
+
+        $this->unsetClauses();
+        $model = $this->model;
+
+        $condition = $isSearchOr ? 'orWhere' : 'where';
+
+        foreach ($searchData as $field => $value) {
+            if ($value !== null) {
+                $dataSearch = $this->getDataSearch($field);
+                $column = $dataSearch['column'];
+                $operator = $dataSearch['operator'];
+                $type = $dataSearch['type'];
+
+                if ($operator === 'in') {
+                    $value = is_string($value) ? explode(",", $value) : $value;
+                    $value = array_filter($value, function ($element) {
+                        return !(is_null($element) || $element === '');
+                    });
+                    if ($value) {
+                        $model = $model->{$condition . 'In'}($column, $value);
+                    }
+                } else {
+                    if ($type === 'date') {
+                        $model = $model->{$condition . 'Date'}($column, $operator, $value);
+                    } else {
+                        if ($operator === 'like') {
+                            $value = '%' . $value . '%';
+                        }
+                        $model = $model->$condition($column, $operator, $value);
+                    }
+                }
+            }
+        }
+
+        return $model;
+    }
+
+    /**
+     * Get data search
+     *
+     * @param string $field Field.
+     *
+     * @return array
+     */
+    function getDataSearch(string $field)
+    {
+        $searchable = $this->fieldSearchable[$field] ? $this->fieldSearchable[$field] : [];
+        if (!empty($searchable)) {
+            $column = array_key_exists('column', $searchable) ? $searchable['column'] : $field;
+            $operator = array_key_exists('operator', $searchable) ? $searchable['operator'] : '=';
+            $type = array_key_exists('type', $searchable) ? $searchable['type'] : 'normal';
+        } else {
+            $column = $field;
+            $operator = '=';
+            $type = 'normal';
+        }
+
+        if ($type === 'raw') {
+            $column = DB::raw($column);
+        }
+
+        if (isset($searchable['column_type'])) {
+            $column = DB::raw($column . '::' . $searchable['column_type']);
+        }
+
+        return compact('column', 'operator', 'type');
+    }
+
+    /**
+     * searchFromParams
+     *
+     * @param $request
+     *
+     * @return mixed
+     */
+    public function searchFromRequest($request)
+    {
+        return $this->search($request->only(array_keys($this->fieldSearchable)))
+            ->orderBy('created_at', 'desc')
+            ->paginate();
     }
 }

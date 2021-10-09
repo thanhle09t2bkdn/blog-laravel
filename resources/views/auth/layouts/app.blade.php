@@ -18,13 +18,13 @@
     <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/css/adminlte.min.css') }}">
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <!-- Custom -->
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/css/auth.css') }}">
 </head>
 <body class="hold-transition register-page">
 @yield('content')
@@ -37,6 +37,6 @@
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 <!-- AdminLTE App -->
-<script src="{{ asset('js/adminlte.min.js') }}"></script>
+<script src="{{ asset('backend/js/adminlte.min.js') }}"></script>
 </body>
 </html>
